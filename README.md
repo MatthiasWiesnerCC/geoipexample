@@ -54,10 +54,13 @@ Explanation:
 
 In your cloudcontrol app you have to add the compiled php extension as well it's dependencies. Create a folder i.e. `/lib` in your app root folder and put the compiled libraries from the shared folder here inside.
 
-If you have dependencies as in this example, you need to add the the `/lib` folder to the containers `LD_LIBRARY_PATH`. You can do this by creating (or editing) the `Procfile` in your app root folder with the content:
+If you have dependencies as in this example, you need to add the the `/lib` folder to the containers `LD_LIBRARY_PATH`. That assures that the dependencies can be found by the PHP extension. This can be done by using the cloudcontrol.de config addon. Two config values have to be set:
 ~~~bash
-web: export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/app/code/lib; bash boot.sh
+SET_ENV_VARS=True
+LD_LIBRARY_PATH=/app/code/lib
 ~~~
+(Warning: by this way all config variables are visible on a phpinfo() page.)
+
 
 Now you have to configure php to register the extension. For this you create a file (and folder) `.buildpack/php/conf/geoip.ini` with the content:
 ~~~config
