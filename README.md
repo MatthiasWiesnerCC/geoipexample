@@ -56,8 +56,8 @@ In your cloudControl app, you have to add the compiled PHP extension as well its
 
 If you have dependencies like in this example, you need to add the `/lib` folder to the containers `LD_LIBRARY_PATH`. That assures that the dependencies can be found by the PHP extension. This can be done by using the cloudControl Custom Config Add-on. Two config values have to be set:
 ~~~bash
-SET_ENV_VARS=True
-LD_LIBRARY_PATH=/app/code/lib
+cctrlapp APP_NAME/default config.add SET_ENV_VARS=True
+cctrlapp APP_NAME/default config.add LD_LIBRARY_PATH=/app/code/lib
 ~~~
 (Warning: if `SET_ENV_VARS` is set, all config variables are visible on a phpinfo() page.)
 
