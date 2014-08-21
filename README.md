@@ -50,7 +50,7 @@ Explanation:
 - Compile and install the extension
 - Copy the compiled PHP extension (geoip.so) and the dependencies that geoip.so uses (libGeoIP.so.1) to the shared folder.
 
-## In your clouControl app
+## In your cloudControl app
 
 In your cloudControl app, you have to add the compiled PHP extension as well its dependencies. Create a folder i.e. `/lib` in your app's root folder and put the compiled libraries from the shared folder inside.
 
